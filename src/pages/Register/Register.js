@@ -1,11 +1,12 @@
 /* eslint-disable prettier/prettier */
 import { Image, StatusBar, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 // import uuid from 'react-native-uuid';
 import styles from "./Register.style";
 // import {useDispatch} from 'react-redux';
+// import DatePicker from "../../components/DataPicker/DatePicker";
 
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -32,6 +33,7 @@ const RegisterSchema = Yup.object().shape({
 });
 const Register = ({ navigation }) => {
   // const dispatch = useDispatch();
+  
 
   const handleRegister = async (values) => {
     // const user = {
@@ -106,13 +108,16 @@ const Register = ({ navigation }) => {
               value={values.userBirthDate}
               onType={handleChange("userBirthDate")}
               iconName="cake-variant-outline"
+              inputType="date"
+              datepicker            
             />
             {errors.userBirthDate? <Errors value={errors.userBirthDate} /> : null}
+            {/* <DatePicker /> */}
             <Input
               placeholder="Enter Sex..."
               value={values.userSex}
               onType={handleChange("userSex")}
-              iconName="gender-male-female"
+              iconName="gender-male-female"              
             />
             {errors.userSex? <Errors value={errors.userSex} /> : null}
             <Input
@@ -162,6 +167,7 @@ const Register = ({ navigation }) => {
           </View>
         )}
       </Formik>
+      
     </View>
   );
 };
