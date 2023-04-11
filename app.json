@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "tceyhan",
     "name": "AwesomeProject",
     "slug": "AwesomeProject",
     "version": "1.0.0",
