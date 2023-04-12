@@ -1,15 +1,17 @@
+/* eslint-disable prettier/prettier */
 import { View, TextInput } from "react-native";
 import React, { useState } from "react";
-import styles from "./Input.style";
+import styles from "./DateInput.style";
 import { Icon } from "@rneui/themed";
+import DatePicker from "../DataPicker/DatePicker";
 
-const Input = ({
+const DateInput = ({
   placeholder,
   onType,
   value,
   iconName,
   isSecure,
-  inputType,
+  inputType,  
 }) => {
   return (
     <View style={styles.container}>
@@ -21,6 +23,7 @@ const Input = ({
         secureTextEntry={isSecure}
         inputType={inputType}
       />
+      <DatePicker />
       <Icon
         name={iconName}
         size={35}
@@ -31,4 +34,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default DateInput;

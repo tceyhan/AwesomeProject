@@ -3,14 +3,15 @@ import { Image, StatusBar, Text, View } from "react-native";
 import React, { useState } from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import { showToast } from '../../components/Toast/ToastComp';
+import { showToast } from "../../components/Toast/ToastComp";
 
 import styles from "./Register.style";
 
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Errors from "../../components/YupErrors/YupErrors";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import DateInput from "../../components/DateInput/DateInput";
 
 const RegisterSchema = Yup.object().shape({
   userName: Yup.string()
@@ -21,8 +22,8 @@ const RegisterSchema = Yup.object().shape({
     .required("Required"),
   userTc: Yup.string()
     .min(11, "Too Short! password must to contain 11 characters")
-    .max(11, "Too Long! password must to contain 11 characters")
-    .required("Required"),
+    .max(11, "Too Long! password must to contain 11 characters"),
+  // .required("Required"),
   userPassword: Yup.string()
     .min(4, "Too Short! password must to contain at least 4 characters")
     .max(15, "Too Long! password must to contain at most 15 characters")
@@ -30,28 +31,27 @@ const RegisterSchema = Yup.object().shape({
   userPassword2: Yup.string()
     .min(4, "Too Short! password must to contain at least 4 characters")
     .max(15, "Too Long! password must to contain at most 15 characters")
-    .oneOf([Yup.ref('userPassword'), null], 'Passwords must match')
+    .oneOf([Yup.ref("userPassword"), null], "Passwords must match")
     .required("Required"),
   userMail: Yup.string()
     .email("mail adress must be a valid")
     .required("Required"),
 });
-const Register = ({ navigation }) => {   
-
-  const handleRegister = async (values) => {   
+const Register = ({ navigation }) => {
+  const handleRegister = async (values) => {
     const user = {
       userName: values.userName,
       userSurname: values.userSurname,
-      userTc:values.userTc,
+      userTc: values.userTc,
       userBirthDate: values.userBirthDate,
-      userSex:values.userSex,
+      userSex: values.userSex,
       userMail: values.userMail,
       userFullName: `${values.userName} ${values.userSurname}`,
-      userPassword: values.userPassword
+      userPassword: values.userPassword,
     };
     try {
-      await AsyncStorage.setItem('@USER', JSON.stringify(user));
-      navigation.navigate('Login');
+      await AsyncStorage.setItem("@USER", JSON.stringify(user));
+      navigation.navigate("Login");
     } catch (error) {
       console.log(error);
     }
@@ -80,7 +80,6 @@ const Register = ({ navigation }) => {
           userMail: "",
           userPassword: "",
           userPassword2: "",
-          
         }}
         onSubmit={handleRegister}
         validationSchema={RegisterSchema}
@@ -100,29 +99,36 @@ const Register = ({ navigation }) => {
               onType={handleChange("userSurname")}
               iconName="account"
             />
-            {values.userName && errors.userSurname ? <Errors value={errors.userSurname} /> : null}
+            {values.userName && errors.userSurname ? (
+              <Errors value={errors.userSurname} />
+            ) : null}
             <Input
               placeholder="Enter citizen number..."
               value={values.userTc}
               onType={handleChange("userTc")}
               iconName="card-account-details-outline"
             />
-            {values.userSurname && errors.userTc? <Errors value={errors.userTc} /> : null}
-            <Input
+            {values.userSurname && errors.userTc ? (
+              <Errors value={errors.userTc} />
+            ) : null}
+            <DateInput
               placeholder="Enter Birth Date..."
               value={values.userBirthDate}
               onType={handleChange("userBirthDate")}
               iconName="cake-variant-outline"
-              // datepicker            
             />
-            {values.userTc && errors.userBirthDate? <Errors value={errors.userBirthDate} /> : null}
+            {values.userTc && errors.userBirthDate ? (
+              <Errors value={errors.userBirthDate} />
+            ) : null}
             <Input
               placeholder="Enter Sex..."
               value={values.userSex}
               onType={handleChange("userSex")}
-              iconName="gender-male-female"              
+              iconName="gender-male-female"
             />
-            {values.userBirthDate && errors.userSex? <Errors value={errors.userSex} /> : null}
+            {values.userBirthDate && errors.userSex ? (
+              <Errors value={errors.userSex} />
+            ) : null}
             <Input
               placeholder="Enter mail adress..."
               value={values.userMail}
@@ -130,7 +136,9 @@ const Register = ({ navigation }) => {
               iconName="email-outline"
               inputType="email"
             />
-            {values.userSex && errors.userMail ? <Errors value={errors.userMail} /> : null}
+            {values.userSex && errors.userMail ? (
+              <Errors value={errors.userMail} />
+            ) : null}
             <Input
               placeholder="Enter password..."
               value={values.userPassword}
@@ -151,7 +159,7 @@ const Register = ({ navigation }) => {
             {values.userPassword && errors.userPassword2 ? (
               <Errors value={errors.userPassword2} />
             ) : null}
-           
+
             <Button
               text="Register"
               onPress={handleSubmit}
@@ -170,7 +178,6 @@ const Register = ({ navigation }) => {
           </View>
         )}
       </Formik>
-      
     </View>
   );
 };
