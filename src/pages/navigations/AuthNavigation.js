@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Register from "../Register/Register";
 import Login from "../Login/Login";
+import StackNavigation from "./StackNavigation";
 
 const AuthNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -18,6 +19,13 @@ const AuthNavigation = () => {
         headerTitleAlign: "center",
       }}
     >
+         <Stack.Screen
+        name="Register"
+        component={Register}
+        options={{
+          title: "Register",
+        }}
+      />
       <Stack.Screen
         name="Login"
         component={Login}
@@ -26,12 +34,13 @@ const AuthNavigation = () => {
         }}
       />
       <Stack.Screen
-        name="Register"
-        component={Register}
+        name="Stack"
+        component={StackNavigation}
         options={{
-          title: "Register",
+          title: "StackNavigation",
         }}
       />
+   
     </Stack.Navigator>
   );
 };

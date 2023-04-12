@@ -6,10 +6,9 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Errors from '../../components/YupErrors';
 import {Formik} from 'formik';
-// import {useSelector} from 'react-redux';
 import * as Yup from 'yup';
 import { showToast } from '../../components/Toast/ToastComp';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const LoginSchema = Yup.object().shape({
@@ -24,46 +23,35 @@ const LoginSchema = Yup.object().shape({
 
 const Login = ({navigation}) => {
   const [user, setUser] = useState();
-  // const {users} = useSelector(state => state.auth);
-  // console.log(users);
+  
+//! hafızaki user
+const getUser = async () => {
+  try {
+    const jsonValue = await AsyncStorage.getItem('@USER');
+    return jsonValue != null ? setUser(JSON.parse(jsonValue)) : null;
+  } catch (e) {
+    console.log(e);
+  }
+};
 
-  // hafızaki user
-
-// const getUser = async () => {
-//   try {
-//     const jsonValue = await AsyncStorage.getItem('@USER');
-//     return jsonValue != null ? setUser(JSON.parse(jsonValue)) : null;
-//   } catch (e) {
-//     console.log(e);
-//   }
-// };
-
-// useEffect(() => {
-//   getUser();
-// }, []);
-// console.log(user);
+useEffect(() => {
+  getUser();
+}, []);
+console.log(user);
 
   function handleLogin(values) {
-    // console.log(values);
-    // let loginUser = users.some(
-    //   item =>
-    //     item.userMail === values.userMail &&
-    //     item.userPassword === values.userPassword,
-    // );
-    // let storeUser = user.userMail === values.userMail &&
-    // user.userPassword === values.userPassword;
-    // console.log('login user',loginUser);
-    // console.log('store user',storeUser);
-
-    // if (loginUser || storeUser) {
-    //   showToast('welcome');
-    //   navigation.navigate('HomeScreen', {user});
-    // } else {
-    //   showToast('errorlogin');
-    //   return;
-    // }
+    console.log(values);
+    let storeUser = user.userMail === values.userMail && user.userPassword === values.userPassword;
+    console.log('store user',storeUser);
+    if (storeUser) {
+      showToast('welcome');
+      navigation.push('Stack', {user});
+    } else {
+      showToast('errorlogin');
+      return;
+    }
   }
-
+  
   function handleRegisterPage() {
     navigation.navigate('Register');
   }

@@ -115,4 +115,11 @@ export const showToast = (type) => {
       text2: 'Something is went wrong ⚠️',
     });
   }
+  else if (type === 'nomatchpassword') {
+    return Toast.show({
+      type: 'error',
+      text1: 'Kayıt',
+      text2: 'Parola 1 ve Parola 2 eşleşmedi ⚠️',
+    });
+  }
 };

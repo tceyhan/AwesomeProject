@@ -14,8 +14,6 @@ const Input = ({
   inputType,
   datepicker
 }) => {
-  const [show, setShow] = useState(false);
-
   return (
     <View style={styles.container}>
       <TextInput
@@ -26,13 +24,12 @@ const Input = ({
         secureTextEntry={isSecure}
         inputType={inputType}
       />
-      {show && datepicker && <DatePicker/>}
+      {datepicker && <DatePicker />}
       <Icon
         name={iconName}
         size={35}
         color="lightgray"
         type="material-community"
-        onPress={() => setShow(!show)}
       />
     </View>
   );

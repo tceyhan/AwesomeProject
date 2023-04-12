@@ -3,14 +3,14 @@ import { Image, StatusBar, Text, View } from "react-native";
 import React, { useState } from "react";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-// import uuid from 'react-native-uuid';
+import { showToast } from '../../components/Toast/ToastComp';
+
 import styles from "./Register.style";
-// import {useDispatch} from 'react-redux';
-// import DatePicker from "../../components/DataPicker/DatePicker";
 
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Errors from "../../components/YupErrors/YupErrors";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const RegisterSchema = Yup.object().shape({
   userName: Yup.string()
@@ -31,25 +31,25 @@ const RegisterSchema = Yup.object().shape({
     .email("mail adress must be a valid")
     .required("Required"),
 });
-const Register = ({ navigation }) => {
-  // const dispatch = useDispatch();
-  
+const Register = ({ navigation }) => {   
 
-  const handleRegister = async (values) => {
-    // const user = {
-    //   id: uuid.v4(),
-    //   userName: values.userName,
-    //   userSurname: values.userSurname,
-    //   userFullName: `${values.userName} ${values.userSurname}`,
-    //   userPassword: values.userPassword,
-    //   userMail: values.userMail,
-    // };
-    // try {
-    //   await dispatch(addUser(user));
-    //   navigation.navigate('Login');
-    // } catch (error) {
-    //   console.log(error);
-    // }
+  const handleRegister = async (values) => {   
+    const user = {
+      userName: values.userName,
+      userSurname: values.userSurname,
+      userTc:values.userTc,
+      userBirthDate: values.userBirthDate,
+      userSex:values.userSex,
+      userMail: values.userMail,
+      userFullName: `${values.userName} ${values.userSurname}`,
+      userPassword: values.userPassword === values.userPassword2 ? values.userPassword : showToast('nomatchpassword')
+    };
+    try {
+      await AsyncStorage.setItem('@USER', JSON.stringify(user));
+      navigation.navigate('Login');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   function handleLoginPage() {
@@ -95,31 +95,29 @@ const Register = ({ navigation }) => {
               onType={handleChange("userSurname")}
               iconName="account"
             />
-            {errors.userSurname ? <Errors value={errors.userSurname} /> : null}
+            {values.userName && errors.userSurname ? <Errors value={errors.userSurname} /> : null}
             <Input
               placeholder="Enter citizen number..."
               value={values.userTc}
               onType={handleChange("userTc")}
               iconName="card-account-details-outline"
             />
-            {errors.userTc? <Errors value={errors.userTc} /> : null}
+            {values.userSurname && errors.userTc? <Errors value={errors.userTc} /> : null}
             <Input
               placeholder="Enter Birth Date..."
               value={values.userBirthDate}
               onType={handleChange("userBirthDate")}
               iconName="cake-variant-outline"
-              inputType="date"
-              datepicker            
+              // datepicker            
             />
-            {errors.userBirthDate? <Errors value={errors.userBirthDate} /> : null}
-            {/* <DatePicker /> */}
+            {values.userTc && errors.userBirthDate? <Errors value={errors.userBirthDate} /> : null}
             <Input
               placeholder="Enter Sex..."
               value={values.userSex}
               onType={handleChange("userSex")}
               iconName="gender-male-female"              
             />
-            {errors.userSex? <Errors value={errors.userSex} /> : null}
+            {values.userBirthDate && errors.userSex? <Errors value={errors.userSex} /> : null}
             <Input
               placeholder="Enter mail adress..."
               value={values.userMail}
@@ -127,7 +125,7 @@ const Register = ({ navigation }) => {
               iconName="email-outline"
               inputType="email"
             />
-            {errors.userMail ? <Errors value={errors.userMail} /> : null}
+            {values.userSex && errors.userMail ? <Errors value={errors.userMail} /> : null}
             <Input
               placeholder="Enter password..."
               value={values.userPassword}
@@ -135,7 +133,7 @@ const Register = ({ navigation }) => {
               iconName="key"
               isSecure
             />
-            {errors.userPassword ? (
+            {values.userMail && errors.userPassword ? (
               <Errors value={errors.userPassword} />
             ) : null}
             <Input
@@ -145,8 +143,8 @@ const Register = ({ navigation }) => {
               iconName="key"
               isSecure
             />
-            {errors.userPassword ? (
-              <Errors value={errors.userPassword} />
+            {values.userPassword && errors.userPassword2 ? (
+              <Errors value={errors.userPassword2} />
             ) : null}
            
             <Button

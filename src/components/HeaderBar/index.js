@@ -1,2 +1,2 @@
 /* eslint-disable prettier/prettier */
-export {default} from './Register';
+export {default} from './HeaderBar';
