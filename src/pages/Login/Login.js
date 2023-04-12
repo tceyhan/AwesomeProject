@@ -86,7 +86,7 @@ console.log(user);
               iconName="key"
               isSecure
             />
-            {errors.userPassword ? (
+            {values.userMail && errors.userPassword ? (
               <Errors value={errors.userPassword} />
             ) : null}
             <Button

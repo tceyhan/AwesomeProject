@@ -27,6 +27,11 @@ const RegisterSchema = Yup.object().shape({
     .min(4, "Too Short! password must to contain at least 4 characters")
     .max(15, "Too Long! password must to contain at most 15 characters")
     .required("Required"),
+  userPassword2: Yup.string()
+    .min(4, "Too Short! password must to contain at least 4 characters")
+    .max(15, "Too Long! password must to contain at most 15 characters")
+    .oneOf([Yup.ref('userPassword'), null], 'Passwords must match')
+    .required("Required"),
   userMail: Yup.string()
     .email("mail adress must be a valid")
     .required("Required"),
@@ -42,7 +47,7 @@ const Register = ({ navigation }) => {
       userSex:values.userSex,
       userMail: values.userMail,
       userFullName: `${values.userName} ${values.userSurname}`,
-      userPassword: values.userPassword === values.userPassword2 ? values.userPassword : showToast('nomatchpassword')
+      userPassword: values.userPassword
     };
     try {
       await AsyncStorage.setItem('@USER', JSON.stringify(user));
