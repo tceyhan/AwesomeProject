@@ -9,7 +9,7 @@ const Input = ({
   value,
   iconName,
   isSecure,
-  inputType,
+  inputMode,
 }) => {
   return (
     <View style={styles.container}>
@@ -19,7 +19,7 @@ const Input = ({
         onChangeText={onType}
         value={value}
         secureTextEntry={isSecure}
-        inputType={inputType}
+        inputMode={inputMode}
       />
       <Icon
         name={iconName}

@@ -115,7 +115,7 @@ const Register = ({ navigation }) => {
               placeholder="Enter Birth Date..."
               value={values.userBirthDate}
               onType={handleChange("userBirthDate")}
-              iconName="cake-variant-outline"
+              iconName="calendar-month-outline"
             />
             {values.userTc && errors.userBirthDate ? (
               <Errors value={errors.userBirthDate} />
@@ -134,7 +134,7 @@ const Register = ({ navigation }) => {
               value={values.userMail}
               onType={handleChange("userMail")}
               iconName="email-outline"
-              inputType="email"
+              inputMode="email"
             />
             {values.userSex && errors.userMail ? (
               <Errors value={errors.userMail} />
