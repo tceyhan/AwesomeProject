@@ -37,16 +37,16 @@ export default DropDown;
 
 const styles = StyleSheet.create({
   container: {
-    // width:'100%',
+    width:150,
   },
   dropdown: {
     backgroundColor: "#c88",
-    width: 100,
+    width: 130,
     borderRadius: 10,
   },
   btn: {
     backgroundColor: "#c33",
-    width: 100,
+    width: 130,
     borderRadius: 5,
     marginHorizontal: 10,
   },

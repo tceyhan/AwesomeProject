@@ -9,8 +9,12 @@ const Search = () => {
     <View style={styles.container}>
       <RadioButtons />
       <View style={styles.dropdownContainer}>
+        <Text style={styles.text}>Nereden</Text>
         <DropDown />
-        <DropDown />
+      </View>
+      <View style={styles.dropdownContainer}>
+      <Text style={styles.text}>Nereye</Text>
+        <DropDown />        
       </View>
     </View>
   );
