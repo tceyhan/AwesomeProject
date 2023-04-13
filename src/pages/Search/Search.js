@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import styles from "./Search.style";
 import RadioButtons from "../../components/RadioButtons/RadioButtons";
 import DropDown from "../../components/DropDown/DropDown";
+import Button from "../../components/Button/Button";
 
 const Search = () => {
   return (
@@ -16,6 +17,7 @@ const Search = () => {
       <Text style={styles.text}>Nereye</Text>
         <DropDown />        
       </View>
+      <Button text="Ara" IconName="magnify" IconColor="white" />
     </View>
   );
 };
