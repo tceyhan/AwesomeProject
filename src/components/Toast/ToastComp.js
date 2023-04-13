@@ -63,14 +63,7 @@ export const showToast = (type) => {
     return Toast.show({
       type: 'success',
       text1: 'Congrats',
-      text2: 'Succesfully add favorite👋',
-    });
-  }
-  else if (type === 'error') {
-    return Toast.show({
-      type: 'error',
-      text1: 'Sorry',
-      text2: 'This job is already had added 💢',
+      text2: 'Succesfully👋',
     });
   }
   else if (type === 'remove') {
@@ -80,18 +73,12 @@ export const showToast = (type) => {
       text2: 'Succesfuly removed 🗑️',
     });
   }
-  else if (type === 'nolink') {
-    return Toast.show({
-      type: 'error',
-      text1: 'Emty Link',
-      text2: 'This job has not a link',
-    });
-  }
+  
   else if (type === 'register') {
     return Toast.show({
       type: 'success',
       text1: 'Register',
-      text2: 'Succesfully sign up👋',
+      text2: 'Başarıyla kayıt olundu👋',
     });
   }
   else if (type === 'varuser') {
@@ -104,15 +91,15 @@ export const showToast = (type) => {
   else if (type === 'welcome') {
     return Toast.show({
       type: 'success',
-      text1: 'Login',
-      text2: 'Succesfully Login👋',
+      text1: 'Giriş Yap',
+      text2: 'Başarıyla giriş yapıldı👋',
     });
   }
   else if (type === 'errorlogin') {
     return Toast.show({
       type: 'error',
       text1: 'Login',
-      text2: 'Something is went wrong ⚠️',
+      text2: 'Şifre yada mail adresiniz hatalı ⚠️',
     });
   }
   else if (type === 'nomatchpassword') {

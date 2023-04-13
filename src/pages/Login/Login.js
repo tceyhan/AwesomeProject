@@ -90,7 +90,7 @@ console.log(user);
               <Errors value={errors.userPassword} />
             ) : null}
             <Button
-              text="Login"
+              text="Giriş Yap"
               onPress={handleSubmit}
               IconName="account"
               IconColor="white"
@@ -99,7 +99,7 @@ console.log(user);
             />
             <Text style={styles.or}>OR</Text>
             <Button
-              text="Register"
+              text="Üye Ol"
               onPress={handleRegisterPage}
               IconName="account-plus-outline"
               IconColor="white"

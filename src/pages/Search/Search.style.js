@@ -3,21 +3,18 @@ import {Dimensions, StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor: '#c99',
+    // backgroundColor: '#c99',
   },
-  logo: {
-    width: Dimensions.get('window').width * 0.9,
-    height: Dimensions.get('window').height / 3,
-    resizeMode: 'contain',
-    alignSelf: 'center',
-    opacity: 0.8,
-    borderRadius: 10,
-},
-or: {
-  alignSelf: 'center',
-  color: 'black',
-  fontWeight: 'bold',
-},
+  option: {
+    width: 100,
+    margin: 5,
+    padding: 5,
+    fontSize: 14,
+    // fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'orange',
+  },
 });
