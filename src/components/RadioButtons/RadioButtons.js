@@ -28,8 +28,8 @@ const RadioButtons = () => {
         selectedLabelColor="#c44"
         // labelHorizontal={false}
         formHorizontal
-        style={{margin:10}}
-        labelStyle={{fontSize: 20, fontWeight: 'bold', marginRight: 10}}
+        style={{ margin: 10 }}
+        labelStyle={{ fontSize: 20, fontWeight: "bold", marginRight: 10 }}
       />
     </View>
   );

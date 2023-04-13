@@ -1,15 +1,19 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-
+import React from "react";
+import { View, Text } from "react-native";
 import styles from "./Search.style";
-import RadioButtons from '../../components/RadioButtons/RadioButtons';
+import RadioButtons from "../../components/RadioButtons/RadioButtons";
+import DropDown from "../../components/DropDown/DropDown";
 
 const Search = () => {
   return (
     <View style={styles.container}>
-      <RadioButtons />    
+      <RadioButtons />
+      <View style={styles.dropdownContainer}>
+        <DropDown />
+        <DropDown />
+      </View>
     </View>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
