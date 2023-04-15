@@ -40,7 +40,7 @@ const StackNavigation = ({navigation}) => {
         }}
       />
       <Stack.Screen
-        name="selectedTour"
+        name="selectTourPage"
         component={SelectTour}
         options={{
           // headerTitle: props => <HeaderBar {...props} />,

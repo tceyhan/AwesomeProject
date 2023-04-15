@@ -1,10 +1,8 @@
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import SelectDropdown from "react-native-select-dropdown";
 
-const screenDimensions = Dimensions.get("window");
-
-const DropDown = () => {
+const DropDown = ({ setSelectCity }) => {
   const cities = ["İstanbul", "Ankara", "İzmir", "Bursa"];
   return (
     <View style={styles.container}>
@@ -17,6 +15,7 @@ const DropDown = () => {
         data={cities}
         onSelect={(selectedItem, index) => {
           console.log(selectedItem, index);
+          setSelectCity(selectedItem);
         }}
         buttonTextAfterSelection={(selectedItem, index) => {
           // text represented after item is selected
@@ -37,7 +36,7 @@ export default DropDown;
 
 const styles = StyleSheet.create({
   container: {
-    width:150,
+    width: 150,
   },
   dropdown: {
     backgroundColor: "#c88",

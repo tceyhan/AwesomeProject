@@ -6,10 +6,12 @@ import RadioForm, {
   RadioButtonInput,
   RadioButtonLabel,
 } from "react-native-simple-radio-button";
-import styles from "./RadioButtons.style";
 
-const RadioButtons = () => {
-  const [value, setValue] = useState(0);
+
+const RadioButtons = ({value, setValue}) => {
+  
+  console.log(value);
+
   //! radio buttons
   var radio_props = [
     { label: "Gidiş", value: 0 },

@@ -1,23 +1,32 @@
 /* eslint-disable prettier/prettier */
-import {Dimensions, StyleSheet} from 'react-native';
+import { Dimensions, StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#c99',
+  container: {},
+  subContainer: {
+    backgroundColor: "#dedede",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    
+    // marginHorizontal: 5,
+    padding: 10,
   },
-  logo: {
-    width: Dimensions.get('window').width * 0.9,
-    height: Dimensions.get('window').height / 3,
-    resizeMode: 'contain',
-    alignSelf: 'center',
-    opacity: 0.8,
-    borderRadius: 10,
-},
-or: {
-  alignSelf: 'center',
-  color: 'black',
-  fontWeight: 'bold',
-},
+  text: {
+    color: "#c33",
+    fontWeight:"bold",
+    justifyContent: "center",
+    margin: 5,
+  },
+  logo: {    
+    width: 50,
+    margin: 5,
+    justifyContent: "center",
+  },
+  textSeat: {
+    flex:0.20,
+    flexWrap: "wrap",
+    fontSize:12,
+  },
+  list: {},
 });

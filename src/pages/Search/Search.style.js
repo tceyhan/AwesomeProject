@@ -32,7 +32,12 @@ export default StyleSheet.create({
   dateSubContainer:{
     marginHorizontal: 10,    
     backgroundColor: "#c99",
-    
+    opacity:1,    
+  },
+  dateDisabled:{
+    marginHorizontal: 10,    
+    backgroundColor: "#c99",
+    opacity: 0.6,    
   },
   textDate:{
     backgroundColor: "#c99",
