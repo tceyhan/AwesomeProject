@@ -116,6 +116,7 @@ const Register = ({ navigation }) => {
               value={values.userBirthDate}
               onType={handleChange("userBirthDate")}
               iconName="calendar-month-outline"
+              iconColor="gray"
             />
             {values.userTc && errors.userBirthDate ? (
               <Errors value={errors.userBirthDate} />
