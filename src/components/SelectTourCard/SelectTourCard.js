@@ -7,16 +7,14 @@ import {
 } from "react-native";
 import React from "react";
 
-const SelectTourCard = ({ item,handleDetail }) => {
-
- 
+const SelectTourCard = ({ item, handleDetail }) => {
   return (
     <TouchableWithoutFeedback onPress={() => handleDetail(item.id)}>
       <View style={styles.container}>
         <Image
           style={styles.tinyLogo}
           source={{
-            uri:item.logoUrl
+            uri: item.logoUrl
           }}
         />
         <Text style={styles.text}>{item.name}</Text>
@@ -32,22 +30,22 @@ export default SelectTourCard;
 
 const styles = StyleSheet.create({
   container: {
-    alignItems:"center",
-    justifyContent:"space-between",
+    alignItems: "center",
+    justifyContent: "space-between",
     flexDirection: "row",
-    backgroundColor:"#dedede",
+    backgroundColor: "#dedede",
     margin: 5,
-    padding:10, 
-    borderRadius:5,   
+    padding: 10,
+    borderRadius: 5,
   },
   tinyLogo: {
     width: 50,
     height: 50,
-    margin:5,
-    borderRadius:30,
+    margin: 5,
+    borderRadius: 30,
   },
-  text:{
-    justifyContent:"center",    
-    margin:5,
-  }
+  text: {
+    justifyContent: "center",
+    margin: 5,
+  },
 });

@@ -9,7 +9,7 @@ export default StyleSheet.create({
     justifyContent: "space-between",
     flexDirection: "row",
     
-    // marginHorizontal: 5,
+    marginHorizontal: 5,
     padding: 10,
   },
   text: {
@@ -23,10 +23,8 @@ export default StyleSheet.create({
     margin: 5,
     justifyContent: "center",
   },
-  textSeat: {
-    flex:0.20,
-    flexWrap: "wrap",
-    fontSize:12,
+  textSeat: { 
+    fontSize:11,
   },
   list: {},
 });

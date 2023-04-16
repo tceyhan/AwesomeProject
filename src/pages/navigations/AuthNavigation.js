@@ -26,8 +26,8 @@ const AuthNavigation = () => {
           title: "Login",
         }}
       />
-      
-         <Stack.Screen
+
+      <Stack.Screen
         name="Register"
         component={Register}
         options={{
@@ -41,7 +41,6 @@ const AuthNavigation = () => {
           title: "StackNavigation",
         }}
       />
-   
     </Stack.Navigator>
   );
 };
