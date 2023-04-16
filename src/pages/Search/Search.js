@@ -38,11 +38,11 @@ const Search = ({ navigation }) => {
   };
   return (
     <View style={styles.container}>
-      <Text>{newDeparture}</Text>
+      {/* <Text>{newDeparture}</Text>
       <Text>{newArrival}</Text>
       <Text>
         {selectDeparture} {selectArrival}
-      </Text>
+      </Text> */}
       <View style={styles.radioBtn}>
         <RadioButtons value={value} setValue={setValue} />
       </View>
