@@ -4,7 +4,7 @@ import { Dimensions, StyleSheet } from "react-native";
 export default StyleSheet.create({
   container: {},
   subContainer: {
-    backgroundColor: "#dedede",
+    backgroundColor: "lightgray",
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",

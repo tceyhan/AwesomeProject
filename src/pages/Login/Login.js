@@ -63,7 +63,7 @@ console.log(user);
       <View style={styles.logo_container}>
         {/* <Image
           style={styles.logo}
-          source={require('../../assets/jobfind.png')}
+          source={require('../../assets/login.png')}
         /> */}
       </View>
       <Formik

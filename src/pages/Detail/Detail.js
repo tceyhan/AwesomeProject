@@ -5,7 +5,7 @@ import Button from "../../components/Button/Button";
 import { Icon } from "@rneui/themed";
 
 
-const Detail = ({ route }) => {
+const Detail = ({ route, navigation }) => {
   const [booked, setBooked] = useState([]);
   // const [values, setValues] = useState({idNumber:"",sex:"",seatNo:""})
   const [idNumber, setIdNumber] = useState("");
@@ -24,7 +24,7 @@ function setNo (seatNo) {
 };
 
   const handleRegister = (totalPassenger)=> {    
-      // navigation.navigate("Login", {totalPassenger});
+      navigation.navigate("Checkout", {totalPassenger});
       console.log(totalPassenger);   
   };
 
